@@ -42,15 +42,18 @@
   "plenary.nvim": { "branch": "master", "commit": "3707cdb1e43f5cea73afb6037e6494e7ce847a66" },
   "precognition.nvim": { "branch": "main", "commit": "24f2cc51dccecec4cf3de04bfbd14f5b9e79df0b" },
   "rainbow-delimiters.nvim": { "branch": "master", "commit": "85b80abaa09cbbc039e3095b2f515b3cf8cadd11" },
+  "sqlite.lua": { "branch": "master", "commit": "b487fcc8937b683942a1f7d9662fcf50ca5acd58" },
   "supermaven-nvim": { "branch": "main", "commit": "07d20fce48a5629686aefb0a7cd4b25e33947d50" },
   "tailwind-tools": { "branch": "master", "commit": "3703e162d819a04b128902c508276553dae0dfb8" },
   "telescope-repo.nvim": { "branch": "master", "commit": "a5395a4bf0fd742cc46b4e8c50e657062f548ba9" },
   "telescope.nvim": { "branch": "master", "commit": "415af52339215926d705cccc08145f3782c4d132" },
   "toggleterm.nvim": { "branch": "main", "commit": "50ea089fc548917cc3cc16b46a8211833b9e3c7c" },
+  "treewalker.nvim": { "branch": "main", "commit": "aaaa9e5c33380a0cfb583605fb358a9a9bcafc05" },
   "twilight.nvim": { "branch": "main", "commit": "1584c0b0a979b71fd86b18d302ba84e9aba85b1b" },
   "vim-be-good": { "branch": "master", "commit": "0ae3de14eb8efc6effe7704b5e46495e91931cc5" },
   "vim-repeat": { "branch": "master", "commit": "65846025c15494983dafe5e3b46c8f88ab2e9635" },
   "vim-rooter": { "branch": "master", "commit": "51402fb77c4d6ae94994e37dc7ca13bec8f4afcc" },
   "which-key.nvim": { "branch": "main", "commit": "1f8d414f61e0b05958c342df9b6a4c89ce268766" },
+  "yanky.nvim": { "branch": "main", "commit": "9543d4c6c537720419bccb3338c4ddd5bb6fbd44" },
   "zen-mode.nvim": { "branch": "main", "commit": "863f150ca321b3dd8aa1a2b69b5f411a220e144f" }
 }

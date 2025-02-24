@@ -78,7 +78,6 @@ require("lazy").setup({
 			"nvim-telescope/telescope.nvim", -- optional
 			"neovim/nvim-lspconfig", -- optional
 		},
-		opts = {}, -- your configuration
 	},
 	{
 		"m4xshen/hardtime.nvim",
@@ -270,6 +269,17 @@ require("lazy").setup({
 	{
 		"kevinhwang91/nvim-hlslens",
 		config = function()
+			require("hlslens").setup({
+				nearest_only = true,
+				nearest_float_when = "never",
+				override_lens = function(render, plist, nearest, idx, relIdx)
+					-- Empty override_lens function prevents any virtual text from being displayed
+				end,
+				calm_down = true, --
+				enable_incsearch = false,
+			})
+
+			vim.api.nvim_set_hl(0, "HlSearchNear", { fg = "#000000", bg = "#ffffff" })
 			require("scrollbar.handlers.search").setup({})
 		end,
 	},
@@ -316,12 +326,19 @@ require("lazy").setup({
 					clear_suggestion = "<A-c>",
 					accept_word = "<A-n>",
 				},
-				color = {
-					-- suggestion_color = "#ffffff",
-					-- cterm = 244,
+				ignore_filetypes = {
+					"TelescopePrompt",
+					"NvimTree",
+					"neo-tree",
+					"notify",
+					"quickfix",
+					"prompt",
+					"text",
+					"markdown",
+					"md",
 				},
-				disable_inline_completion = false, -- disables inline completion for use with cmp
-				disable_keymaps = false, -- disables built in keymaps for more manual control
+				disable_inline_completion = false,
+				disable_keymaps = false,
 			})
 		end,
 	},
@@ -336,4 +353,35 @@ require("lazy").setup({
 		end,
 	},
 	{ "tris203/precognition.nvim" },
+	{
+		"gbprod/yanky.nvim",
+		dependencies = {
+			{ "kkharji/sqlite.lua" },
+		},
+		opts = {
+			ring = { storage = "sqlite" },
+			highlight = {
+				on_put = true,
+				on_yank = true,
+				timer = 4000,
+			},
+		},
+		keys = {
+			{
+				"<leader>p",
+				function()
+					require("telescope").extensions.yank_history.yank_history({})
+				end,
+				desc = "Open Yank History",
+			},
+			{ "y", "<Plug>(YankyYank)", mode = { "n", "x" }, desc = "Yank text" },
+			{ "p", "<Plug>(YankyPutAfter)", mode = { "n", "x" }, desc = "Put yanked text after cursor" },
+			{ "P", "<Plug>(YankyPutBefore)", mode = { "n", "x" }, desc = "Put yanked text before cursor" },
+			{ "<c-p>", "<Plug>(YankyPreviousEntry)", desc = "Select previous entry through yank history" },
+			{ "<c-n>", "<Plug>(YankyNextEntry)", desc = "Select next entry through yank history" },
+		},
+	},
+    {
+      'aaronik/treewalker.nvim',
+    }
 })

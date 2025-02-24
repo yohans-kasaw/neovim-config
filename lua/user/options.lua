@@ -1,9 +1,11 @@
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 
 vim.opt.showtabline = 4
+
 vim.opt.expandtab = true
-vim.opt.smartindent = true
-vim.opt.autoindent = true
+
+vim.opt.smartindent = false 
+vim.opt.autoindent = false 
 vim.opt.copyindent = true
 
 
@@ -27,7 +29,7 @@ vim.opt.completeopt = { "menu", "menuone", "noselect", "noinsert" }
 vim.opt.smartcase = true
 
 vim.opt.relativenumber = true
---vim.opt.scrolloff = 100
+vim.opt.scrolloff = 4
 
 vim.api.nvim_set_hl(0, 'LeapBackdrop', { link = 'Comment' })
 
@@ -35,6 +37,8 @@ local function enable_spell()
 	vim.opt_local.spell = true
 	vim.opt_local.spelllang = { "en_us" } -- Using table for multiple languages
 end
+
+vim.o.undofile = true
 
 vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
 	desc = "Conditional spell checking activation",
@@ -45,3 +49,7 @@ vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
 		end
 	end,
 })
+
+
+
+

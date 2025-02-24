@@ -92,7 +92,7 @@ local function get_run_command(filetype)
 	elseif filetype == "dart" then
 		return ":! echo && cat test | dart %"
 	else
-		return ":!echo & cat %"
+		return ""
 	end
 end
 
@@ -105,3 +105,11 @@ end
 function show_diagnostics()
 	vim.diagnostic.open_float(nil, {})
 end
+
+-- movement
+vim.keymap.set({ 'n', 'v' }, '<C-k>', '<cmd>Treewalker Up<cr>', { silent = true })
+vim.keymap.set({ 'n', 'v' }, '<C-j>', '<cmd>Treewalker Down<cr>', { silent = true })
+
+-- swapping
+vim.keymap.set('n', '<C-S-k>', '<cmd>Treewalker SwapUp<cr>', { silent = true })
+vim.keymap.set('n', '<C-S-j>', '<cmd>Treewalker SwapDown<cr>', { silent = true })
