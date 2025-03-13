@@ -315,3 +315,12 @@ vim.keymap.set("n", "<leader>bl", function()
 		count = 6,
 	})
 end, { desc = "Git Blame Line" })
+
+
+vim.keymap.set("n", "<leader>d", function()
+    if next(require("diffview.lib").views) == nil then
+        vim.cmd("DiffviewOpen")
+    else
+        vim.cmd("DiffviewClose")
+    end
+end, { desc = "Toggle Diff View" })
