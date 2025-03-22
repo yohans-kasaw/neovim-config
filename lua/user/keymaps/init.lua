@@ -5,9 +5,12 @@ local opts = { noremap = true, silent = false }
 
 map("n", "gl", "<cmd>lua show_diagnostics()<CR>", { noremap = true, silent = true })
 
--- map("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
+map("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 map("n", "<leader>o", ":w<CR>", { noremap = true, silent = true })
 map("n", "<Tab>", ":lua  RunCodeOnFiletype()<CR>", { noremap = true, silent = true })
+
+-- search the current word under cursor
+map("n", "<Leader>*", "<Cmd>Telescope grep_string word_match=-w<CR>", { desc = "Search word under cursor" })
 
 map("n", "<C-h>", "<C-w>h", opts)
 map("n", "<C-j>", "<C-w>j", opts)
@@ -113,9 +116,9 @@ end, { desc = "Command History" })
 vim.keymap.set("n", "<leader>n", function()
 	Snacks.picker.notifications()
 end, { desc = "Notification History" })
-vim.keymap.set("n", "<leader>e", function()
-	Snacks.explorer()
-end, { desc = "File Explorer" })
+-- vim.keymap.set("n", "<leader>e", function()
+-- 	Snacks.explorer()
+-- end, { desc = "File Explorer" })
 
 -- find
 vim.keymap.set("n", "<leader>ub", function()
@@ -324,3 +327,4 @@ vim.keymap.set("n", "<leader>d", function()
         vim.cmd("DiffviewClose")
     end
 end, { desc = "Toggle Diff View" })
+
