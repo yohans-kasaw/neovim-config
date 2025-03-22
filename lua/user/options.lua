@@ -29,7 +29,7 @@ vim.opt.completeopt = { "menu", "menuone", "noselect", "noinsert" }
 vim.opt.smartcase = true
 
 vim.opt.relativenumber = true
-vim.opt.scrolloff = 4
+vim.opt.scrolloff = 1
 
 vim.api.nvim_set_hl(0, 'LeapBackdrop', { link = 'Comment' })
 

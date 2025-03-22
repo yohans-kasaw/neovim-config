@@ -2,12 +2,18 @@ vim.g.mapleader = " "
 
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = false }
+-- map j and k to gj and gk
+map("n", "j", "gj", { noremap = true, silent = true })
+map("n", "k", "gk", { noremap = true, silent = true })
 
 map("n", "gl", "<cmd>lua show_diagnostics()<CR>", { noremap = true, silent = true })
 
--- map("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
+map("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 map("n", "<leader>o", ":w<CR>", { noremap = true, silent = true })
 map("n", "<Tab>", ":lua  RunCodeOnFiletype()<CR>", { noremap = true, silent = true })
+
+-- search the current word under cursor
+map("n", "<Leader>*", "<Cmd>Telescope grep_string word_match=-w<CR>", { desc = "Search word under cursor" })
 
 map("n", "<C-h>", "<C-w>h", opts)
 map("n", "<C-j>", "<C-w>j", opts)
@@ -19,6 +25,11 @@ map("n", "tn", "<cmd>bnext<CR>", opts)
 map("n", "th", "<cmd>bprev<CR>", opts)
 map("n", "td", "<cmd>bd<CR>", opts)
 map("n", "ta", [[:lua CloseOtherBuffers()<CR>]], { noremap = true, silent = true })
+
+-- scrolling mapipng
+vim.keymap.set({"n", "v", "i", "x", "c", "o"}, "<Down>", "<C-f>", opts)
+vim.keymap.set({"n", "v", "i", "x", "c", "o"}, "<Up>", "<C-b>", opts)
+
 
 -- map("n", "<leader>t", "<cmd>Telescope<CR>", opts) -- Direct Telescope command
 -- map("n", "<leader>u", "<cmd>Telescope find_files<CR>", opts) -- Find files
@@ -113,9 +124,9 @@ end, { desc = "Command History" })
 vim.keymap.set("n", "<leader>n", function()
 	Snacks.picker.notifications()
 end, { desc = "Notification History" })
-vim.keymap.set("n", "<leader>e", function()
-	Snacks.explorer()
-end, { desc = "File Explorer" })
+-- vim.keymap.set("n", "<leader>e", function()
+-- 	Snacks.explorer()
+-- end, { desc = "File Explorer" })
 
 -- find
 vim.keymap.set("n", "<leader>ub", function()
@@ -324,3 +335,10 @@ vim.keymap.set("n", "<leader>d", function()
         vim.cmd("DiffviewClose")
     end
 end, { desc = "Toggle Diff View" })
+
+
+-- select a session to load
+vim.keymap.set("n", "<leader>qs", function() require("persistence").select() end)
+
+-- load the last session
+vim.keymap.set("n", "<leader>ql", function() require("persistence").load({ last = true }) end)

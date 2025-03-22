@@ -78,16 +78,16 @@ require("lazy").setup({
             "neovim/nvim-lspconfig",         -- optional
         },
     },
-    {
-        "m4xshen/hardtime.nvim",
-        dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-        opts = {
-            showmode = true,
-            max_count = 10,
-            disable_mouse = true,
-            hint = true,
-        },
-    },
+    -- {
+    --     "m4xshen/hardtime.nvim",
+    --     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+    --     opts = {
+    --         showmode = true,
+    --         max_count = 10,
+    --         disable_mouse = true,
+    --         hint = true,
+    --     },
+    -- },
     { "ThePrimeagen/vim-be-good" },
     {
         "utilyre/barbecue.nvim",
@@ -277,7 +277,6 @@ require("lazy").setup({
                 calm_down = true, --
                 enable_incsearch = false,
             })
-
             vim.api.nvim_set_hl(0, "HlSearchNear", { fg = "#000000", bg = "#ffffff" })
             require("scrollbar.handlers.search").setup({})
         end,
@@ -306,7 +305,7 @@ require("lazy").setup({
         config = function()
             require("supermaven-nvim").setup({
                 keymaps = {
-                    accept_suggestion = "<A-h>",
+                    accept_suggestion = "<A-Tab>",
                     clear_suggestion = "<A-c>",
                     accept_word = "<A-n>",
                 },
@@ -337,34 +336,6 @@ require("lazy").setup({
         end,
     },
     { "tris203/precognition.nvim" },
-    {
-        "gbprod/yanky.nvim",
-        dependencies = {
-            { "kkharji/sqlite.lua" },
-        },
-        opts = {
-            ring = { storage = "sqlite" },
-            highlight = {
-                on_put = true,
-                on_yank = true,
-                timer = 4000,
-            },
-        },
-        keys = {
-            {
-                "<leader>p",
-                function()
-                    require("telescope").extensions.yank_history.yank_history({})
-                end,
-                desc = "Open Yank History",
-            },
-            { "y",     "<Plug>(YankyYank)",          mode = { "n", "x" },                                desc = "Yank text" },
-            { "p",     "<Plug>(YankyPutAfter)",      mode = { "n", "x" },                                desc = "Put yanked text after cursor" },
-            { "P",     "<Plug>(YankyPutBefore)",     mode = { "n", "x" },                                desc = "Put yanked text before cursor" },
-            { "<c-p>", "<Plug>(YankyPreviousEntry)", desc = "Select previous entry through yank history" },
-            { "<c-n>", "<Plug>(YankyNextEntry)",     desc = "Select next entry through yank history" },
-        },
-    },
     {
         "aaronik/treewalker.nvim",
     },
@@ -416,8 +387,8 @@ require("lazy").setup({
             indent = { enabled = true },
             input = { enabled = true },
             picker = { enabled = true },
-            notifier = { enabled = true },
             quickfile = { enabled = true },
+            notify = { enabled = false},
             scope = { enabled = true },
             scroll = { enabled = true },
             statuscolumn = { enabled = true },
@@ -428,4 +399,90 @@ require("lazy").setup({
         "rest-nvim/rest.nvim",
     },
     { "sindrets/diffview.nvim" },
+    {
+        'MeanderingProgrammer/render-markdown.nvim',
+        after = { 'nvim-treesitter' },
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+        config = function()
+            require('render-markdown').setup({
+                completions = { lsp = { enabled = true } },
+            })
+        end,
+    },
+    {
+      "yetone/avante.nvim",
+      event = "VeryLazy",
+      version = false, -- Never set this value to "*"! Never!
+      opts = {
+        -- add any opts here
+        -- for example
+        provider = "openai",
+        openai = {
+          endpoint = "https://api.openai.com/v1",
+          model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
+          timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
+          temperature = 0,
+          max_completion_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
+          --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
+        },
+      },
+      -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+      build = "make",
+      -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
+      dependencies = {
+        "nvim-treesitter/nvim-treesitter",
+        "stevearc/dressing.nvim",
+        "nvim-lua/plenary.nvim",
+        "MunifTanjim/nui.nvim",
+        --- The below dependencies are optional,
+        "echasnovski/mini.pick", -- for file_selector provider mini.pick
+        "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
+        "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
+        "ibhagwan/fzf-lua", -- for file_selector provider fzf
+        "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+        {
+          -- support for image pasting
+          "HakonHarnes/img-clip.nvim",
+          event = "VeryLazy",
+          opts = {
+            -- recommended settings
+            default = {
+              embed_image_as_base64 = false,
+              prompt_for_file_name = false,
+              drag_and_drop = {
+                insert_mode = true,
+              },
+              -- required for Windows users
+              use_absolute_path = true,
+            },
+          },
+        },
+        {
+          -- Make sure to set this up properly if you have lazy=true
+          'MeanderingProgrammer/render-markdown.nvim',
+          opts = {
+            file_types = { "markdown", "Avante" },
+          },
+          ft = { "markdown", "Avante" },
+        },
+      },
+    config = function()
+        local opts = {
+            provider = "openrouter",
+            vendors = {
+                  openrouter = {
+                    __inherited_from = 'openai',
+                    endpoint = 'https://openrouter.ai/api/v1',
+                    api_key_name = 'OPENROUTER_API_KEY',
+                    model = "anthropic/claude-3.5-sonnet:beta",
+                  },
+            },
+        }
+        require("avante").setup(opts)
+      end,
+    },
+    {
+      "folke/persistence.nvim",
+      event = "BufReadPre", -- this will only start session saving when an actual file was opened
+    }
 })
