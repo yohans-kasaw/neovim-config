@@ -3,14 +3,6 @@ local use_icons = true
 local function on_attach(bufnr)
 	local api = require("nvim-tree.api")
 
-	-- local function telescope_find_files(_)
-	--   require("jovim.core.nvimtree").start_telescope "find_files"
-	-- end
-
-	-- local function telescope_live_grep(_)
-	--   require("jovim.core.nvimtree").start_telescope "live_grep"
-	-- end
-
 	local function opts(desc)
 		return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
 	end
@@ -23,8 +15,6 @@ local function on_attach(bufnr)
 		["v"] = { api.node.open.vertical, opts("Open: Vertical Split") },
 		["C"] = { api.tree.change_root_to_node, opts("CD") },
 		["h"] = { api.node.navigate.parent_close, opts("Close Directory") },
-		-- ["gtg"] = { telescope_live_grep, opts "Telescope Live Grep" },
-		-- ["gtf"] = { telescope_find_files, opts "Telescope Find File" },
 	}
 
 	for key, value in pairs(useful_keys) do

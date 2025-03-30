@@ -6,6 +6,10 @@ vim.keymap.set("n", "<leader>d", function()
     end
 end, { desc = "Toggle Diff View" })
 
+-- add git signs
+
+
+
 
 vim.keymap.set("n", "<leader>bl", function()
     Snacks.git.blame_line({

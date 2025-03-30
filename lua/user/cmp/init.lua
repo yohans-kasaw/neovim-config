@@ -1,7 +1,6 @@
 local cmp = require("cmp")
 local cmp_mapping = require("cmp.config.mapping")
 
--- Local helper functions
 local has_words_before = function()
 	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
 	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
@@ -111,7 +110,6 @@ cmp.setup({
 	}),
 })
 
--- Cmdline configurations
 local cmdline_mapping = cmp.mapping.preset.cmdline()
 
 cmp.setup.cmdline({ "/", "?" }, {
