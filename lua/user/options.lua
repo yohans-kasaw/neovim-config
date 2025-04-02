@@ -44,7 +44,7 @@ vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
 	desc = "Conditional spell checking activation",
 	callback = function(args)
 		local ft = vim.bo[args.buf].filetype
-		if vim.tbl_contains({ "markdown", "text" }, ft) or ft == "" then
+		if vim.tbl_contains({ "markdown", "text" }, ft) then
 			enable_spell()
 		end
 	end,

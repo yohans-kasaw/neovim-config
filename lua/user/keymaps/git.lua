@@ -1,14 +1,38 @@
-vim.keymap.set("n", "<leader>d", function()
-    if next(require("diffview.lib").views) == nil then
-        vim.cmd("DiffviewOpen")
-    else
-        vim.cmd("DiffviewClose")
-    end
-end, { desc = "Toggle Diff View" })
+local gitsigns = require('gitsigns')
 
--- add git signs
+vim.keymap.set('n', '<A-Down>', function() gitsigns.nav_hunk('next') end, {desc = "Next Hunk"})
+vim.keymap.set('n', '<A-Up>', function() gitsigns.nav_hunk('prev') end, {desc = "Next Hunk"})
 
+vim.keymap.set('n', '<leader>hs', gitsigns.stage_hunk, { desc = "Stage Hunk" })
+vim.keymap.set('n', '<leader>hr', gitsigns.reset_hunk, { desc = "Reset Hunk" })
 
+vim.keymap.set('v', '<leader>hs', function()
+  gitsigns.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+end, { desc = "Stage Hunk" })
+
+vim.keymap.set('v', '<leader>hr', function()
+  gitsigns.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+end, { desc = "Reset Hunk" })
+
+vim.keymap.set('n', '<leader>hp', gitsigns.preview_hunk, { desc = "Preview Hunk Inline" })
+vim.keymap.set('n', '<leader>hi', gitsigns.preview_hunk_inline, { desc = "Preview Hunk Inline" })
+
+vim.keymap.set('n', '<leader>hb', function()
+  gitsigns.blame_line({ full = true })
+end, { desc = "Blame Line" })
+
+vim.keymap.set('n', '<leader>hd', gitsigns.diffthis, { desc = "Diff This" })
+
+vim.keymap.set('n', '<leader>hD', function()
+  gitsigns.diffthis('~')
+end, { desc = "Diff This Unstaged" })
+
+vim.keymap.set('n', '<leader>hq', gitsigns.setqflist, { desc = "Setqflist" })
+
+vim.keymap.set('n', '<leader>tw', gitsigns.toggle_word_diff, { desc = "Toggle Word Diff" })
+
+-- Text object
+vim.keymap.set({'o', 'x'}, 'ih', gitsigns.select_hunk, { desc = "Select Hunk" })
 
 
 vim.keymap.set("n", "<leader>bl", function()

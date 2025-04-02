@@ -106,7 +106,6 @@ cmp.setup({
 		{ name = "cmdline" },
 		{ name = "lazydev", group_index = 0 },
 		{ name = "treesitter" },
-    { name = "codecompanion"},
 	}),
 })
 
@@ -125,3 +124,8 @@ cmp.setup.cmdline(":", {
 	matching = matching_settings,
 	completion = completion_settings,
 })
+
+cmp.setup.filetype('markdown', {
+    sources = {},
+})
+

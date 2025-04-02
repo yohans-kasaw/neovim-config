@@ -1,11 +1,5 @@
 return {
-    { "aaronik/treewalker.nvim",
-      opts = {
-        highlight = true,
-        highlight_duration = 250,
-        highlight_group = 'CursorLine',
-      }
-    },
+    { "aaronik/treewalker.nvim"},
     {
         "ggandor/leap.nvim",
         dependencies = {

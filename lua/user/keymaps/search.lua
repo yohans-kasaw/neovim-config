@@ -31,14 +31,6 @@ vim.keymap.set("n", "<leader>sk", function()
     Snacks.picker.keymaps()
 end, { desc = "Keymaps" })
 
-vim.keymap.set("n", "<leader>sq", function()
-    Snacks.picker.qflist()
-end, { desc = "Quickfix List" })
-
-vim.keymap.set("n", "<leader>sR", function()
-    Snacks.picker.resume()
-end, { desc = "Resume" })
-
 vim.keymap.set("n", "<leader>su", function()
     Snacks.picker.undo()
 end, { desc = "Undo History" })
