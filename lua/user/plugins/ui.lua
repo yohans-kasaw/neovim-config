@@ -34,14 +34,6 @@ return {
         end,
     },
     {
-        "projekt0n/github-nvim-theme",
-        lazy = false,
-        priority = 1000,
-        config = function()
-            require("github-theme").setup({})
-        end,
-    },
-    {
         "yamatsum/nvim-cursorline",
         config = function()
             require("nvim-cursorline").setup({
@@ -56,12 +48,6 @@ return {
                     hl = { underline = true },
                 },
             })
-        end,
-    },
-    {
-        "rebelot/kanagawa.nvim",
-        config = function()
-            require("kanagawa").setup()
         end,
     },
 }

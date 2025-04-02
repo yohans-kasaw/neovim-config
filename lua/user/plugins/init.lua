@@ -21,6 +21,7 @@ local plugins = {
     require("user.plugins.git"),
     require("user.plugins.AI_tools"),
     require("user.plugins.telescope_and_snacks"),
+    require("user.plugins.colorscheme"),
 }
 
 local flattened_plugins = {}
