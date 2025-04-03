@@ -1,16 +1,18 @@
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 
-vim.opt.showtabline = 4
+vim.opt.showtabline = 2
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 
 vim.opt.expandtab = true
+vim.opt.swapfile = false
+vim.o.hidden = true
+vim.o.showbreak = "↳⋅"
 
-vim.opt.smartindent = false 
-vim.opt.autoindent = false 
+vim.opt.smartindent = false
+vim.opt.autoindent = false
 vim.opt.copyindent = true
 
-
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
 
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_ruby_provider = 0
@@ -31,7 +33,9 @@ vim.opt.smartcase = true
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 1
 
-vim.api.nvim_set_hl(0, 'LeapBackdrop', { link = 'Comment' })
+vim.opt.termguicolors = true
+
+vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
 
 local function enable_spell()
 	vim.opt_local.spell = true
@@ -51,5 +55,8 @@ vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
 })
 
 
-
+-- fzf
+vim.g.fzf_buffers_jump = true
+vim.g.fzf_layout = { window = { width = 0.8, height = 0.4, yoffset = 0.2 } }
+vim.cmd [[let $FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS . ' --reverse --ansi']]
 

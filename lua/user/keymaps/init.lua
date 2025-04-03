@@ -6,4 +6,5 @@ require("user.keymaps.git")
 require("user.keymaps.lsp")
 require("user.keymaps.search")
 require("user.keymaps.treewalker")
-
+require("user.keymaps.dev")
+require("user.keymaps.edite")

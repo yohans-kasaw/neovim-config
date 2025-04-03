@@ -10,7 +10,6 @@ require("user.nvim_tree")
 require("user.keymaps")
 require("user.conform")
 require("user.neovide")
-
+require("user.auto_cmd")
 
 vim.cmd("colorscheme kanagawa-wave")
-

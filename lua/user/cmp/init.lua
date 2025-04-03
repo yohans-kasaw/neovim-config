@@ -25,9 +25,9 @@ local source_menu_icons = {
 	buffer = "[Buffer]",
 	path = "[Path]",
 	cmdline = "[Cmd]",
-  lazydev = "[LazyDev]",
-  treesitter = "[TS]",
-  codecompanion = "[CodeCompanion]",
+	lazydev = "[LazyDev]",
+	treesitter = "[TS]",
+	codecompanion = "[CodeCompanion]",
 }
 
 -- Window configuration
@@ -125,7 +125,6 @@ cmp.setup.cmdline(":", {
 	completion = completion_settings,
 })
 
-cmp.setup.filetype('markdown', {
-    sources = {},
+cmp.setup.filetype("markdown", {
+	sources = {},
 })
-
