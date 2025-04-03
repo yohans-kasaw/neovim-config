@@ -11,6 +11,4 @@ require("user.keymaps")
 require("user.conform")
 require("user.neovide")
 
-
 vim.cmd("colorscheme kanagawa-wave")
-

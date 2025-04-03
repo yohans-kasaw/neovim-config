@@ -5,16 +5,15 @@ vim.api.nvim_set_keymap("n", "td", "<cmd>bd<CR>", { noremap = true, silent = fal
 
 -- Close other buffers
 vim.keymap.set("n", "ta", function()
-  local current_buf = vim.api.nvim_get_current_buf()
-  local buffers = vim.api.nvim_list_bufs()
+	local current_buf = vim.api.nvim_get_current_buf()
+	local buffers = vim.api.nvim_list_bufs()
 
-  for _, buf in ipairs(buffers) do
-    if buf ~= current_buf and vim.api.nvim_buf_is_loaded(buf) then
-      vim.api.nvim_buf_delete(buf, { force = false })
-    end
-  end
+	for _, buf in ipairs(buffers) do
+		if buf ~= current_buf and vim.api.nvim_buf_is_loaded(buf) then
+			vim.api.nvim_buf_delete(buf, { force = false })
+		end
+	end
 end, { noremap = true, silent = true, desc = "Close Other Buffers (Tab All)" })
-
 
 -- Window navigation
 vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true, silent = false })

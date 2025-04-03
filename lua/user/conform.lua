@@ -1,7 +1,6 @@
 require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
-		-- Specify formatters for different filetypes
 		python = { "black" },
 		javascript = { "prettier" },
 		typescript = { "prettier" },
