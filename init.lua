@@ -13,3 +13,8 @@ require("user.neovide")
 require("user.auto_cmd")
 
 vim.cmd("colorscheme kanagawa-wave")
+vim.lsp.enable({
+	"lua_ls",
+	"sqlls",
+	"ts_ls",
+})
