@@ -1,6 +1,13 @@
 --
 local lspconfig = require("lspconfig")
-lspconfig.volar.setup {}
+lspconfig.volar.setup({})
+
+require("lspconfig").pyright.setup({
+	before_init = function(_, config)
+		config.settings.python.analysis.stubPath = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy", "python-type-stubs")
+	end,
+})
+
 -- require("mason").setup()
 -- require("mason-lspconfig").setup()
 --
@@ -29,7 +36,6 @@ lspconfig.volar.setup {}
 -- })
 --
 -- lspconfig.rust_analyzer.setup({
--- 	capabilities = require("cmp_nvim_lsp").default_capabilities(),
 -- })
 --
 -- lspconfig.ts_ls.setup({

@@ -1,9 +1,4 @@
-vim.fn.sign_define("DiagnosticSignError", { text = Icons.diagnostics.Error, texthl = "DiagnosticSignError" })
-vim.fn.sign_define("DiagnosticSignWarn", { text = Icons.diagnostics.Warning, texthl = "DiagnosticSignWarn" })
-vim.fn.sign_define("DiagnosticSignHint", { text = Icons.diagnostics.Hint, texthl = "DiagnosticSignHint" })
-vim.fn.sign_define("DiagnosticSignInfo", { text = Icons.diagnostics.Information, texthl = "DiagnosticSignInfo" })
-
-local default_diagnostic_config = {
+vim.diagnostic.config({
 	virtual_text = false,
 	update_in_insert = false,
 	underline = { severity = { min = vim.diagnostic.severity.WARN } },
@@ -12,10 +7,16 @@ local default_diagnostic_config = {
 		focusable = true,
 		style = "normal",
 		border = "double",
-		source = "always",
-		header = "Diagnostics",
-		prefix = ">>",
+		source = "if_many",
+		header = "",
+		prefix = "",
 	},
-}
-
-vim.diagnostic.config(default_diagnostic_config)
+ signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = 'e',
+            [vim.diagnostic.severity.WARN] = 'w',
+            [vim.diagnostic.severity.INFO] = 'i',
+            [vim.diagnostic.severity.HINT] = 'h',
+        }
+    }
+})

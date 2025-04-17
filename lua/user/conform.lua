@@ -2,10 +2,10 @@ require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
 		python = { "black" },
-		javascript = { "prettier" },
-		typescript = { "prettier" },
-		javascriptreact = { "prettier" },
-		typescriptreact = { "prettier" },
+		javascript = { "prettierd" },
+		typescript = { "prettierd" },
+		javascriptreact = { "prettierd" },
+		typescriptreact = { "prettierd" },
 		css = { "prettier" },
 		html = { "prettier" },
 		json = { "prettier" },
@@ -19,9 +19,9 @@ require("conform").setup({
 				"--skip-magic-trailing-comma", -- Don't use trailing commas as a reason to split lines
 			},
 		},
-		prettier = {
+		prettierd = {
             prepend_args = {
-                "--tab-width", "4",
+                "--tab-width", "2",
                 "--single-quote",
                 "--no-semi",
                 "--trailing-comma", "none",
@@ -29,6 +29,7 @@ require("conform").setup({
         },
 	},
 })
+
 
 vim.keymap.set({ "n", "v" }, 
     "<leader>ff", function()
