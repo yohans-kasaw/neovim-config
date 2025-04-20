@@ -17,4 +17,5 @@ vim.lsp.enable({
 	"lua_ls",
 	"sqlls",
 	"ts_ls",
+	"volar"
 })

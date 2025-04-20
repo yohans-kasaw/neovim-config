@@ -19,10 +19,10 @@ return {
 			})
 		end,
 	},
-    {
-      'rmagatti/auto-session',
-      lazy = false,
-      opts = {
-      }
-    }
+	{
+		"folke/persistence.nvim",
+		event = "BufReadPre", 
+		opts = {
+		},
+	},
 }
