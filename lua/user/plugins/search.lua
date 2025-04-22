@@ -3,7 +3,7 @@ return {
 		"nvim-telescope/telescope.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
-            require("telescope._extensions.project.actions")
+			require("telescope._extensions.project.actions")
 		end,
 	},
 	{
@@ -14,7 +14,13 @@ return {
 			bigfile = { enabled = true },
 			dashboard = {
 				sections = {
-					{ section = "projects", title = "projects", icon = "", indent = 2, padding = 1 },
+					{
+						section = "projects",
+						title = "projects",
+						icon = "",
+						indent = 2,
+						padding = 1,
+					},
 					{ section = "session" },
 					{ section = "startup" },
 				},
@@ -33,17 +39,26 @@ return {
 				},
 			},
 			notify = { enabled = true },
+			scratch = {
+				enabled = true,
+				ft = function()
+					return "markdown"
+				end,
+				filekey = {
+					cwd = true, -- use current working directory
+					branch = false, -- use current branch name
+					count = true, -- use vim.v.count1
+				},
+			},
 		},
 	},
-    {
-      "ibhagwan/fzf-lua",
-      dependencies = { "nvim-tree/nvim-web-devicons" },
-      opts = {}
-    },
-    {
-        'nvim-telescope/telescope-project.nvim',
-        dependencies = {
-            'nvim-telescope/telescope.nvim',
-        },
-    }
+	{
+		"ibhagwan/fzf-lua",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = {},
+	},
+	{
+		"nvim-telescope/telescope-project.nvim",
+		dependencies = { "nvim-telescope/telescope.nvim" },
+	},
 }

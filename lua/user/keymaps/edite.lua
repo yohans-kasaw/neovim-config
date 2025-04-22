@@ -1,1 +1,1 @@
-vim.keymap.set('n', '<leader>tt', require('treesj').toggle, { desc = 'Toggle treesj' })
+vim.keymap.set('n', '<leader>.', function() Snacks.scratch() end, {desc = "Toggle Scratch Buffer" })

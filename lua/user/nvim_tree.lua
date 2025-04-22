@@ -11,7 +11,7 @@ local function on_attach(bufnr)
 
 	local useful_keys = {
 		["l"] = { api.node.open.edit, opts("Open") },
-		["<CR>"] = { api.node.open.edit, opts("Open") },
+		["<CR>"] = { api.node.open.preview, opts("Open Preview") },
 		["v"] = { api.node.open.vertical, opts("Open: Vertical Split") },
 		["C"] = { api.tree.change_root_to_node, opts("CD") },
 		["h"] = { api.node.navigate.parent_close, opts("Close Directory") },
@@ -20,7 +20,6 @@ local function on_attach(bufnr)
 	for key, value in pairs(useful_keys) do
 		vim.keymap.set("n", key, value[1], value[2])
 	end
-	vim.keymap.set("n", "<Tab>", api.node.open.preview, opts("Open Preview"))
 end
 
 require("nvim-tree").setup({
@@ -36,7 +35,7 @@ require("nvim-tree").setup({
 	view = {
 		adaptive_size = false,
 		centralize_selection = true,
-		width = 30,
+		width = 45,
 		debounce_delay = 15,
 		side = "right",
 		preserve_window_proportions = false,
@@ -77,7 +76,7 @@ require("nvim-tree").setup({
 		-- highlight_modified = "all",
 		root_folder_label = ":t",
 		full_name = true,
-		indent_width = 3,
+		indent_width = 5,
 		special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
 		symlink_destination = true,
 		indent_markers = {

@@ -21,7 +21,7 @@ require("conform").setup({
 		},
 		prettierd = {
             prepend_args = {
-                "--tab-width", "2",
+                "--tab-width", "4",
                 "--single-quote",
                 "--no-semi",
                 "--trailing-comma", "none",

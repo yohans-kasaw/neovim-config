@@ -22,7 +22,9 @@ local plugins = {
 	require("user.plugins.AI_tools"),
 	require("user.plugins.search"),
 	require("user.plugins.colorscheme"),
-	require("user.plugins.dev")
+	require("user.plugins.dev"),
+	require("user.plugins.fun")
+
 }
 
 local flattened_plugins = {}
