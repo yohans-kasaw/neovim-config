@@ -10,14 +10,14 @@ return {
 		},
 	},
 	{
-        "nvim-tree/nvim-tree.lua",
-    },
+		"nvim-tree/nvim-tree.lua",
+	},
 	{
-        "folke/zen-mode.nvim",
-    },
+		"folke/zen-mode.nvim",
+	},
 	{
-        "nvim-tree/nvim-web-devicons",
-    },
+		"nvim-tree/nvim-web-devicons",
+	},
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -28,7 +28,6 @@ return {
 
 			local lsp_status = {
 				"lsp_status",
-				Icons = "", -- f013
 				symbols = {
 					spinner = Icons.spinner,
 					done = false,
@@ -52,46 +51,27 @@ return {
 				always_visible = false,
 			}
 
-			local diff = {
-				"diff",
-				source = function()
-					local gitsigns = vim.b.gitsigns_status_dict
-					if gitsigns then
-						return {
-							added = gitsigns.added,
-							modified = gitsigns.changed,
-							removed = gitsigns.removed,
-						}
-					end
-				end,
-				symbols = {
-					added = Icons.git.LineAdded .. " ",
-					modified = Icons.git.LineModified .. " ",
-					removed = Icons.git.LineRemoved .. " ",
-				},
-				colored = true,
-				always_visible = false,
-			}
-
 			require("lualine").setup({
 				options = {
 					globalstatus = true,
 					section_separators = "",
 					component_separators = "",
+					theme = "ayu_mirage",
 					disabled_filetypes = {
-                        statusline = {
-                            "dashboard",
-                            "lazy",
-                            "alpha",
-                        },
-                    },
+						statusline = {
+							"dashboard",
+							"lazy",
+							"alpha",
+						},
+					},
 				},
 				sections = {
 					lualine_a = {},
 					lualine_b = {},
-					lualine_c = { { "filename", path = 1, shorten = true } },
+					lualine_c = { { "filename", path = 1, shorten = true }, "branch" },
 					lualine_x = {},
-					lualine_y = { lsp_status, diff, diagnostics, filetype },
+					-- lualine_y = {diagnostics, lsp_status},
+					lualine_y = { diagnostics },
 					lualine_z = {},
 				},
 			})
@@ -129,16 +109,16 @@ return {
 			})
 		end,
 	},
-    {
-      "m4xshen/smartcolumn.nvim",
-      opts = {}
-    },
-    {
-        "OXY2DEV/helpview.nvim",
-        lazy = false
-    },
-    {
-        "lukas-reineke/virt-column.nvim",
-        opts = {},
-    },
+	{
+		"m4xshen/smartcolumn.nvim",
+		opts = {},
+	},
+	{
+		"OXY2DEV/helpview.nvim",
+		lazy = false,
+	},
+	{
+		"lukas-reineke/virt-column.nvim",
+		opts = {},
+	},
 }
