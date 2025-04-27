@@ -97,19 +97,21 @@ return {
 			})
 		end,
 	},
-	{
-		"akinsho/bufferline.nvim",
-		version = "*",
-		dependencies = "nvim-tree/nvim-web-devicons",
-		config = function()
-			local highlights = require("nord").bufferline.highlights({
-				italic = false,
-			})
-			require("bufferline").setup({
-				highlights = highlights,
-			})
-		end,
-	},
+	-- {
+	-- 	"akinsho/bufferline.nvim",
+	-- 	version = "*",
+	-- 	dependencies = "nvim-tree/nvim-web-devicons",
+	-- 	config = function()
+	-- 		local highlights = require("nord").bufferline.highlights({
+	-- 			italic = false,
+	-- 		})
+	-- 		require("bufferline").setup({
+	-- 			highlights = highlights,
+	-- 			options = {
+	--                }
+	-- 		})
+	-- 	end,
+	-- },
 	{
 		"yamatsum/nvim-cursorline",
 		config = function()

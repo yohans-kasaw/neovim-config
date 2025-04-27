@@ -54,6 +54,10 @@ vim.keymap.set("n", "<leader>sk", function()
 	Snacks.picker.keymaps()
 end, { desc = "Keymaps" })
 
+vim.keymap.set("n", "<leader>u", function()
+	Snacks.picker.buffers()
+end, { desc = "Keymaps" })
+
 vim.keymap.set("n", "<leader>su", function()
 	Snacks.picker.undo()
 end, { desc = "Undo History" })

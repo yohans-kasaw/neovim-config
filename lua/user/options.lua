@@ -1,6 +1,6 @@
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 
-vim.opt.showtabline = 4
+vim.opt.showtabline = 0
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 
