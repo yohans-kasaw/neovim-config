@@ -20,24 +20,34 @@ require("conform").setup({
 			},
 		},
 		prettierd = {
-            prepend_args = {
-                "--tab-width", "4",
-                "--single-quote",
-                "--no-semi",
-                "--trailing-comma", "none",
-            },
-        },
+			prepend_args = {
+				"--tab-width",
+				"4",
+				"--single-quote",
+				"--no-semi",
+				"--trailing-comma",
+				"none",
+			},
+		},
+		prettier = {
+			prepend_args = {
+				"--tab-width",
+				"4",
+				"--single-quote",
+				"--no-semi",
+				"--trailing-comma",
+				"none",
+			},
+		},
 	},
 })
 
-
-vim.keymap.set({ "n", "v" }, 
-    "<leader>ff", function()
+vim.keymap.set({ "n", "v" }, "<leader>ff", function()
 	require("conform").format({
 		lsp_fallback = false,
 		async = false,
 		timeout_ms = 500,
 	})
 end, {
-    desc = "Format file or range (in visual mode)",
+	desc = "Format file or range (in visual mode)",
 })
