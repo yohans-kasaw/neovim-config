@@ -1,7 +1,3 @@
--- Buffer navigation
-vim.api.nvim_set_keymap("n", "tn", "<cmd>bnext<CR>", { noremap = true, silent = false })
-vim.api.nvim_set_keymap("n", "th", "<cmd>bprev<CR>", { noremap = true, silent = false })
-vim.api.nvim_set_keymap("n", "td", "<cmd>bd<CR>", { noremap = true, silent = false })
 
 -- Close other buffers
 vim.keymap.set("n", "ta", function()
@@ -15,6 +11,10 @@ vim.keymap.set("n", "ta", function()
 	end
 end, { noremap = true, silent = true, desc = "Close Other Buffers (Tab All)" })
 
+vim.keymap.set( 'n', 'j',  'jzz', { remap = false } )                       vim.keymap.set( 'n', 'k',  'kzz', { remap = false } )
+vim.keymap.set( 'n', 'n',  'nzz', { remap = false } )
+vim.keymap.set( 'n', 'N',  'Nzz', { remap = false } )
+
 -- Window navigation
 vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true, silent = false })
 vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true, silent = false })
@@ -24,7 +24,13 @@ vim.api.nvim_set_keymap("n", "<C-v>", ":vsplit<CR>", { noremap = true, silent = 
 
 
 -- harppon
-vim.keymap.set("n", "ea", require("harpoon.mark").add_file, { noremap = true, silent = false })
-vim.keymap.set("n", "eu", require("harpoon.ui").nav_next , { noremap = true, silent = false })
-vim.keymap.set("n", "eo", require("harpoon.ui").nav_prev, { noremap = true, silent = false })
-vim.keymap.set("n", "ei", require("harpoon.ui").toggle_quick_menu, { noremap = true, silent = false })
+vim.keymap.set("n", "ta", require("harpoon.mark").add_file, { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>l", require("harpoon.ui").toggle_quick_menu, { noremap = true, silent = false })
+vim.keymap.set("n", "tn", require("harpoon.ui").nav_next , { noremap = true, silent = false })
+vim.keymap.set("n", "th", require("harpoon.ui").nav_prev, { noremap = true, silent = false })
+
+
+-- Buffer navigation
+-- vim.api.nvim_set_keymap("n", "tn", "<cmd>bnext<CR>", { noremap = true, silent = false })
+-- vim.api.nvim_set_keymap("n", "th", "<cmd>bprev<CR>", { noremap = true, silent = false })
+-- vim.api.nvim_set_keymap("n", "td", "<cmd>bd<CR>", { noremap = true, silent = false })

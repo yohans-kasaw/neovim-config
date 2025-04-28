@@ -31,7 +31,7 @@ vim.opt.completeopt = { "menu", "menuone", "noselect", "noinsert" }
 vim.opt.smartcase = true
 
 vim.opt.relativenumber = true
-vim.opt.scrolloff = 1
+vim.opt.scrolloff = 4
 
 vim.opt.termguicolors = true
 
