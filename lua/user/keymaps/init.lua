@@ -1,5 +1,9 @@
 vim.g.mapleader = " "
 
+vim.keymap.set({ 'n', 'v', 'o' }, 'H', '0', { noremap = true })
+vim.keymap.set({ 'n', 'v', 'o' }, 'L', '$', { noremap = true })
+
+
 require("user.keymaps.basic")
 require("user.keymaps.navigation")
 require("user.keymaps.git")

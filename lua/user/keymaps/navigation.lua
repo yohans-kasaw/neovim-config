@@ -22,8 +22,6 @@ vim.api.nvim_set_keymap("n", "<C-v>", ":vsplit<CR>", { noremap = true, silent = 
 -- harppon
 vim.keymap.set("n", "<leader>a", require("harpoon.mark").add_file, { noremap = true, silent = false })
 vim.keymap.set("n", "<leader>l", require("harpoon.ui").toggle_quick_menu, { noremap = true, silent = false })
-vim.keymap.set("n", "tn", require("harpoon.ui").nav_next , { noremap = true, silent = false })
-vim.keymap.set("n", "th", require("harpoon.ui").nav_prev, { noremap = true, silent = false })
 
 vim.keymap.set("n", "ta", function () require("harpoon.ui").nav_file(1) end  , { noremap = true, silent = false })
 vim.keymap.set("n", "to", function () require("harpoon.ui").nav_file(2) end  , { noremap = true, silent = false })
@@ -31,6 +29,8 @@ vim.keymap.set("n", "te", function () require("harpoon.ui").nav_file(3) end  , {
 vim.keymap.set("n", "tu", function () require("harpoon.ui").nav_file(4) end  , { noremap = true, silent = false })
 
 -- Buffer navigation
--- vim.api.nvim_set_keymap("n", "tn", "<cmd>bnext<CR>", { noremap = true, silent = false })
--- vim.api.nvim_set_keymap("n", "th", "<cmd>bprev<CR>", { noremap = true, silent = false })
--- vim.api.nvim_set_keymap("n", "td", "<cmd>bd<CR>", { noremap = true, silent = false })
+-- vim.keymap.set("n", "tn", require("harpoon.ui").nav_next , { noremap = true, silent = false })
+-- vim.keymap.set("n", "th", require("harpoon.ui").nav_prev, { noremap = true, silent = false })
+vim.api.nvim_set_keymap("n", "tn", "<cmd>bnext<CR>", { noremap = true, silent = false })
+vim.api.nvim_set_keymap("n", "th", "<cmd>bprev<CR>", { noremap = true, silent = false })
+vim.api.nvim_set_keymap("n", "td", "<cmd>bd<CR>", { noremap = true, silent = false })

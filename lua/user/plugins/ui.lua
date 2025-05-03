@@ -71,7 +71,7 @@ return {
 					lualine_c = { { "filename", path = 1, shorten = true }, "branch" },
 					lualine_x = {},
 					-- lualine_y = {diagnostics, lsp_status},
-					lualine_y = { diagnostics },
+					lualine_y = { diagnostics},
 					lualine_z = {},
 				},
 			})
