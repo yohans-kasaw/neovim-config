@@ -71,7 +71,7 @@ return {
 					lualine_c = { { "filename", path = 1, shorten = true }, "branch" },
 					lualine_x = {},
 					-- lualine_y = {diagnostics, lsp_status},
-					lualine_y = { diagnostics},
+					lualine_y = { diagnostics },
 					lualine_z = {},
 				},
 			})
@@ -120,5 +120,40 @@ return {
 	{
 		"lukas-reineke/virt-column.nvim",
 		opts = {},
+	},
+	{
+		"ellisonleao/gruvbox.nvim",
+	},
+	{
+		"Shatur/neovim-ayu",
+	},
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	},
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+	{
+		"rose-pine/neovim",
+	},
+	{
+		"zaldih/themery.nvim",
+		lazy = false,
+		config = function()
+			require("themery").setup({
+				themes = {
+					"gruvbox",
+					"ayu",
+					"kanagawa-wave",
+					"tokyonight",
+					"tokyonight-storm",
+					"catppuccin",
+					"catppuccin-mocha",
+					"rose-pine"
+				},
+				livePreview = true,
+			})
+		end,
 	},
 }

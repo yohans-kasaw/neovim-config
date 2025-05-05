@@ -57,30 +57,11 @@ return {
 	},
 	{ "microsoft/python-type-stubs" },
 	{
-		"crixuamg/visual-complexity.nvim",
+		"andersevenrud/nvim_context_vt",
 		config = function()
-			require("visual-complexity").setup({
-				enabled_filetypes = {
-					"lua",
-					"javascript",
-					"typescript",
-					"python",
-					"vue"
-				},
-				virtual_text_format = "complexity: %.1f",
-				highlight_group = "Comment",
-				show_bar = false,
-				weights = {
-					func = 2.0,
-					conditional = 2.0,
-					line = .5,
-					indent = 0.1,
-					clump = 1.0,
-				},
-				severity_thresholds = {
-					{ max = 100, group = "Comment" },
-					{ max = 200, group = "WarningMsg" },
-				},
+			require("nvim_context_vt").setup({
+				prefix = "//",
+				min_rows = 8,
 			})
 		end,
 	},

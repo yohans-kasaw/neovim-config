@@ -7,8 +7,8 @@ vim.api.nvim_set_keymap("n", "<leader>o", ":w<CR>", { noremap = true, silent = t
 vim.api.nvim_set_keymap("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 
 -- scroll
-vim.keymap.set({ "n", "v" }, "<Down>", "<C-f>", { noremap = true, silent = false })
-vim.keymap.set({ "n", "v" }, "<Up>", "<C-b>", { noremap = true, silent = false })
+vim.keymap.set({ "n", "v" }, "<Down>", "<C-f>zz", { noremap = true, silent = false })
+vim.keymap.set({ "n", "v" }, "<Up>", "<C-b>zz", { noremap = true, silent = false })
 
 -- hlslens
 vim.api.nvim_set_keymap(
