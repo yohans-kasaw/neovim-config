@@ -57,12 +57,13 @@ return {
 	},
 	{ "microsoft/python-type-stubs" },
 	{
-		"andersevenrud/nvim_context_vt",
-		config = function()
-			require("nvim_context_vt").setup({
-				prefix = "//",
-				min_rows = 8,
-			})
-		end,
+		"mcauley-penney/visual-whitespace.nvim",
+		config = true,
+		event = "ModeChanged *:[vV\22]", -- optionally, lazy load on entering visual mode
+		opts = {},
+	},
+	{
+		"smjonas/inc-rename.nvim",
+		opts = {},
 	},
 }

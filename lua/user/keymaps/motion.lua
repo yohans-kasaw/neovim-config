@@ -1,4 +1,3 @@
-
 -- Close other buffers
 vim.keymap.set("n", "ta", function()
 	local current_buf = vim.api.nvim_get_current_buf()
@@ -18,15 +17,22 @@ vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true, silent = false
 vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true, silent = false })
 vim.api.nvim_set_keymap("n", "<C-v>", ":vsplit<CR>", { noremap = true, silent = false })
 
-
 -- harppon
 vim.keymap.set("n", "<leader>a", require("harpoon.mark").add_file, { noremap = true, silent = false })
 vim.keymap.set("n", "<leader>l", require("harpoon.ui").toggle_quick_menu, { noremap = true, silent = false })
 
-vim.keymap.set("n", "ta", function () require("harpoon.ui").nav_file(1) end  , { noremap = true, silent = false })
-vim.keymap.set("n", "to", function () require("harpoon.ui").nav_file(2) end  , { noremap = true, silent = false })
-vim.keymap.set("n", "te", function () require("harpoon.ui").nav_file(3) end  , { noremap = true, silent = false })
-vim.keymap.set("n", "tu", function () require("harpoon.ui").nav_file(4) end  , { noremap = true, silent = false })
+vim.keymap.set("n", "ta", function()
+	require("harpoon.ui").nav_file(1)
+end, { noremap = true, silent = false })
+vim.keymap.set("n", "to", function()
+	require("harpoon.ui").nav_file(2)
+end, { noremap = true, silent = false })
+vim.keymap.set("n", "te", function()
+	require("harpoon.ui").nav_file(3)
+end, { noremap = true, silent = false })
+vim.keymap.set("n", "tu", function()
+	require("harpoon.ui").nav_file(4)
+end, { noremap = true, silent = false })
 
 -- Buffer navigation
 -- vim.keymap.set("n", "tn", require("harpoon.ui").nav_next , { noremap = true, silent = false })
@@ -34,3 +40,11 @@ vim.keymap.set("n", "tu", function () require("harpoon.ui").nav_file(4) end  , {
 vim.api.nvim_set_keymap("n", "tn", "<cmd>bnext<CR>", { noremap = true, silent = false })
 vim.api.nvim_set_keymap("n", "th", "<cmd>bprev<CR>", { noremap = true, silent = false })
 vim.api.nvim_set_keymap("n", "td", "<cmd>bd<CR>", { noremap = true, silent = false })
+
+vim.api.nvim_set_keymap("n", "<leader>r", "", {
+	noremap = true,
+	callback = function()
+		require("ranger-nvim").open(true)
+	end,
+	desc = "open ranger",
+})

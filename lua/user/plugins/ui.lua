@@ -22,6 +22,9 @@ return {
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
+			require("transparent").clear_prefix("lualine")
+			local transparent_ok, transparent = pcall(require, "transparent")
+
 			local lualine = require("lualine")
 
 			local filetype = { "filetype", icon_only = true }
@@ -75,6 +78,10 @@ return {
 					lualine_z = {},
 				},
 			})
+
+			if transparent_ok then
+				transparent.clear_prefix("lualine")
+			end
 		end,
 	},
 	-- {
@@ -150,10 +157,20 @@ return {
 					"tokyonight-storm",
 					"catppuccin",
 					"catppuccin-mocha",
-					"rose-pine"
+					"rose-pine",
 				},
 				livePreview = true,
 			})
 		end,
+	},
+	{
+		"webhooked/kanso.nvim",
+		lazy = false,
+		priority = 1000,
+	},
+	{
+		"xiyaowong/transparent.nvim",
+		lazy = false,
+		priority = 1000,
 	},
 }

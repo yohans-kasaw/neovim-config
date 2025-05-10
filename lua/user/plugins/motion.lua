@@ -16,6 +16,9 @@ return {
 		end,
 	},
 	{
-      "ThePrimeagen/harpoon",
-    },
+		"ThePrimeagen/harpoon",
+	},
+	{
+		"kelly-lin/ranger.nvim",
+	},
 }

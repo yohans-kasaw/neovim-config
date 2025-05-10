@@ -19,7 +19,7 @@ local plugins = {
 	require("user.plugins.treesitter"),
 	require("user.plugins.motion"),
 	require("user.plugins.git"),
-	require("user.plugins.AI_tools"),
+	require("user.plugins.ai"),
 	require("user.plugins.search"),
 	require("user.plugins.colorscheme"),
 	require("user.plugins.dev"),
