@@ -81,7 +81,6 @@ cmp.setup({
 		format = require("lspkind").cmp_format({
 			mode = "symbol_text",
 			before = function(entry, vim_item)
-				vim_item = require("tailwind-tools.cmp").lspkind_format(entry, vim_item)
 				vim_item.menu = source_menu_icons[entry.source.name] or vim_item.menu
 				return vim_item
 			end,

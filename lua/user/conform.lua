@@ -41,13 +41,3 @@ require("conform").setup({
 		},
 	},
 })
-
-vim.keymap.set({ "n", "v" }, "<leader>ff", function()
-	require("conform").format({
-		lsp_fallback = false,
-		async = false,
-		timeout_ms = 500,
-	})
-end, {
-	desc = "Format file or range (in visual mode)",
-})

@@ -1,13 +1,12 @@
 Icons = require("user.icons")
+vim.g.mapleader = " "
 
 require("user.options")
-
-require("user.plugins")
+require("user.core")
 require("user.lsp")
 require("user.diagnostic")
 require("user.cmp")
 require("user.nvim_tree")
-require("user.keymaps")
 require("user.conform")
 require("user.neovide")
 require("user.auto_cmd")
@@ -21,3 +20,5 @@ vim.lsp.enable({
 	"ts_ls",
 	"volar"
 })
+
+
