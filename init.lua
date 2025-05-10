@@ -10,7 +10,6 @@ vim.cmd("colorscheme kanso-ink")
 
 vim.lsp.enable({
 	"lua_ls",
-	"sqlls",
 	"ts_ls",
 	"volar"
 })
