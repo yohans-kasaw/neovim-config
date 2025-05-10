@@ -12,6 +12,25 @@ return {
 		},
 		{
 			"nvim-tree/nvim-tree.lua",
+			config = function()
+				require("nvim-tree").setup({
+					on_attach = function(bufnr)
+						local api = require("nvim-tree.api")
+						api.config.mappings.default_on_attach(bufnr)
+
+						vim.keymap.set("n", "l", api.node.open.edit)
+						vim.keymap.set("n", "h", api.node.navigate.parent_close)
+						vim.keymap.set("n", "<CR>", api.node.open.preview)
+					end,
+					view = {
+						side = "right",
+					},
+
+					diagnostics = {
+						enable = true,
+					},
+				})
+			end,
 		},
 		{
 			"folke/zen-mode.nvim",

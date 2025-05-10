@@ -17,6 +17,51 @@ return {
 			"stevearc/conform.nvim",
 			cmd = { "ConformInfo" },
 			lazy = false,
+			config = function()
+				require("conform").setup({
+					formatters_by_ft = {
+						lua = { "stylua" },
+						python = { "black" },
+						javascript = { "prettier" },
+						typescript = { "prettier" },
+						javascriptreact = { "prettier" },
+						typescriptreact = { "prettier" },
+						css = { "prettier" },
+						html = { "prettier" },
+						json = { "prettier" },
+						yaml = { "prettier" },
+						vue = { "prettier" },
+					},
+					formatters = {
+						black = {
+							prepend_args = {
+								"--skip-string-normalization",
+								"--skip-magic-trailing-comma",
+							},
+						},
+						prettierd = {
+							prepend_args = {
+								"--tab-width",
+								"4",
+								"--single-quote",
+								"--no-semi",
+								"--trailing-comma",
+								"none",
+							},
+						},
+						prettier = {
+							prepend_args = {
+								"--tab-width",
+								"4",
+								"--single-quote",
+								"--no-semi",
+								"--trailing-comma",
+								"none",
+							},
+						},
+					},
+				})
+			end,
 		},
 		{
 			"folke/lazydev.nvim",
