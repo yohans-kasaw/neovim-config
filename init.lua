@@ -4,7 +4,6 @@ vim.g.mapleader = " "
 require("user.options")
 require("user.core")
 require("user.cmp")
-require("user.lsp")
 
 -- vim.cmd("colorscheme kanagawa-wave")
 vim.cmd("colorscheme kanso-ink")
