@@ -6,7 +6,6 @@ return {
 				require("gitsigns").setup()
 			end,
 		},
-		{ "sindrets/diffview.nvim" },
 	},
 	keys = function()
 		local gitsigns = require("gitsigns")
