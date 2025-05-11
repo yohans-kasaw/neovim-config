@@ -1,6 +1,17 @@
 return {
-	plugins = {},
+	plugins = {
+		{
+			"echasnovski/mini.nvim",
+			version = false,
+			config = function()
+				require("mini.diff").setup()
+			end,
+		},
+	},
 	keys = function()
+        -- mini.diff 
+        vim.keymap.set('n', ';d', MiniDiff.toggle_overlay, { desc = 'MiniDiff Toggle' })
+
 		vim.keymap.set("n", "<leader>c", "<cmd>CodeCompanionChat Toggle<CR>", { noremap = true, silent = false })
 		vim.keymap.set("v", "<leader>c", "<cmd>CodeCompanionChat Add<CR>", { noremap = true, silent = false })
 		vim.keymap.set({ "n", "v" }, "<C-a>", "<cmd>CodeCompanionAction<CR>", { noremap = true, silent = false })
