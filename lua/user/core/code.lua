@@ -61,16 +61,6 @@ return {
 								"--skip-magic-trailing-comma",
 							},
 						},
-						prettierd = {
-							prepend_args = {
-								"--tab-width",
-								"4",
-								"--single-quote",
-								"--no-semi",
-								"--trailing-comma",
-								"none",
-							},
-						},
 						prettier = {
 							prepend_args = {
 								"--tab-width",
@@ -78,7 +68,7 @@ return {
 								"--single-quote",
 								"--no-semi",
 								"--trailing-comma",
-								"none",
+								"all",
 							},
 						},
 					},
