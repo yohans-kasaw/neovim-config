@@ -9,8 +9,8 @@ return {
 		},
 	},
 	keys = function()
-        -- mini.diff 
-        vim.keymap.set('n', ';d', MiniDiff.toggle_overlay, { desc = 'MiniDiff Toggle' })
+		-- mini.diff
+		vim.keymap.set("n", ";d", MiniDiff.toggle_overlay, { desc = "MiniDiff Toggle" })
 
 		vim.keymap.set("n", "<leader>c", "<cmd>CodeCompanionChat Toggle<CR>", { noremap = true, silent = false })
 		vim.keymap.set("v", "<leader>c", "<cmd>CodeCompanionChat Add<CR>", { noremap = true, silent = false })
@@ -29,9 +29,21 @@ return {
 			)
 		end, { noremap = true, silent = true, desc = "Toggle vertical split width" })
 
+		vim.keymap.set(
+            "n",
+            "tn",
+            require("harpoon.ui").nav_next,
+            { noremap = true, silent = false }
+        )
+		vim.keymap.set(
+            "n",
+            "th",
+            require("harpoon.ui").nav_prev,
+            { noremap = true, silent = false }
+        )
 		vim.keymap.set("n", "<A-a>", function()
-			require("harpoon.ui").nav_file(1)
-		end, { noremap = true, silent = false })
+            require("harpoon.ui").nav_file(1)
+        end, { noremap = true, silent = false })
 		vim.keymap.set("n", "<A-o>", function()
 			require("harpoon.ui").nav_file(2)
 		end, { noremap = true, silent = false })
