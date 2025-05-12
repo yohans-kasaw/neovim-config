@@ -2,6 +2,11 @@ return {
 	plugins = {
 		{
 			"ThePrimeagen/harpoon",
+			config = function()
+				require("harpoon").setup({
+					tabline = true,
+				})
+			end,
 		},
 		{
 			"kelly-lin/ranger.nvim",
@@ -17,7 +22,6 @@ return {
 				end
 			end
 		end, { noremap = true, silent = true, desc = "Close Other Buffers (Tab All)" })
-
 
 		-- Window navigation
 		vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true, silent = false })
