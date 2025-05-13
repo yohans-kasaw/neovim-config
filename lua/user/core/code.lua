@@ -27,7 +27,14 @@ return {
 		{ "hrsh7th/cmp-buffer" },
 		{ "hrsh7th/cmp-path" },
 		{ "hrsh7th/cmp-cmdline" },
-		{ "hrsh7th/nvim-cmp" },
+		{
+			"hrsh7th/nvim-cmp",
+			opts = {
+				enabled = function()
+					return (vim.bo.ft ~= "markdown")
+				end,
+			},
+		},
 		{ "onsails/lspkind.nvim" },
 		{
 			"williamboman/mason.nvim",
@@ -98,7 +105,10 @@ return {
 					sync_install = true,
 					auto_install = true,
 					highlight = { enable = true },
-					indent = { enable = true },
+					indent = {
+						enable = true,
+						disable = { "markdown" },
+					},
 					refactor = {
 						smart_rename = {
 							enable = true,

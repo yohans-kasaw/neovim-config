@@ -9,6 +9,10 @@ return {
 		},
 	},
 	keys = function()
+		-- mark down
+		vim.opt.linebreak = true
+		vim.opt.breakindent = true
+
 		-- mini.diff
 		vim.keymap.set("n", ";d", MiniDiff.toggle_overlay, { desc = "MiniDiff Toggle" })
 
@@ -29,21 +33,11 @@ return {
 			)
 		end, { noremap = true, silent = true, desc = "Toggle vertical split width" })
 
-		vim.keymap.set(
-            "n",
-            "tn",
-            require("harpoon.ui").nav_next,
-            { noremap = true, silent = false }
-        )
-		vim.keymap.set(
-            "n",
-            "th",
-            require("harpoon.ui").nav_prev,
-            { noremap = true, silent = false }
-        )
+		vim.keymap.set("n", "tn", require("harpoon.ui").nav_next, { noremap = true, silent = false })
+		vim.keymap.set("n", "th", require("harpoon.ui").nav_prev, { noremap = true, silent = false })
 		vim.keymap.set("n", "<A-a>", function()
-            require("harpoon.ui").nav_file(1)
-        end, { noremap = true, silent = false })
+			require("harpoon.ui").nav_file(1)
+		end, { noremap = true, silent = false })
 		vim.keymap.set("n", "<A-o>", function()
 			require("harpoon.ui").nav_file(2)
 		end, { noremap = true, silent = false })
