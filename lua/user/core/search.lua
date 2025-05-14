@@ -85,7 +85,7 @@ return {
 			Snacks.picker.projects()
 		end, { desc = "Projects" })
 
-		vim.keymap.set("n", "<leader>u", function()
+		vim.keymap.set("n", "<leader>b", function()
 			Snacks.picker.buffers()
 		end, { desc = "Keymaps" })
 

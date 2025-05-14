@@ -33,6 +33,7 @@ vim.opt.relativenumber = true
 vim.opt.scrolloff = 4
 
 vim.opt.termguicolors = true
+vim.jumpoptions = "stack"
 
 vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
 

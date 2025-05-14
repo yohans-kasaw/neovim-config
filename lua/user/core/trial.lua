@@ -9,6 +9,16 @@ return {
 		},
 	},
 	keys = function()
+		-- jumps
+
+		vim.keymap.set("n", "<leader>u", function()
+			Snacks.picker.jumps()
+		end, { desc = "Smart Find Files" })
+
+		-- Add Ctrl-Up and Ctrl-Down for jumplist navigation (Ctrl-o and Ctrl-i)
+		vim.keymap.set("n", "<C-h>", "<C-o>")
+		vim.keymap.set("n", "<C-l>", "<C-i>")
+
 		-- mark down
 		vim.opt.linebreak = true
 		vim.opt.breakindent = true

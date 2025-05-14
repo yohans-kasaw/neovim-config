@@ -27,14 +27,7 @@ return {
 		{ "hrsh7th/cmp-buffer" },
 		{ "hrsh7th/cmp-path" },
 		{ "hrsh7th/cmp-cmdline" },
-		{
-			"hrsh7th/nvim-cmp",
-			opts = {
-				enabled = function()
-					return (vim.bo.ft ~= "markdown")
-				end,
-			},
-		},
+		{ "hrsh7th/nvim-cmp" },
 		{ "onsails/lspkind.nvim" },
 		{
 			"williamboman/mason.nvim",

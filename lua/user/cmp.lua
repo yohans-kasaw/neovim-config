@@ -27,7 +27,6 @@ local source_menu_icons = {
 	cmdline = "[Cmd]",
 	lazydev = "[LazyDev]",
 	treesitter = "[TS]",
-	codecompanion = "[CodeCompanion]",
 }
 
 -- Window configuration
