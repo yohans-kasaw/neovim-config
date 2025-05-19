@@ -39,60 +39,6 @@ return {
 			"nvim-tree/nvim-web-devicons",
 		},
 		{
-			"nvim-lualine/lualine.nvim",
-			dependencies = { "nvim-tree/nvim-web-devicons" },
-			config = function()
-				require("transparent").clear_prefix("lualine")
-				local transparent_ok, transparent = pcall(require, "transparent")
-
-				local lualine = require("lualine")
-
-				local diagnostics = {
-					"diagnostics",
-					sources = { "nvim_diagnostic" },
-					sections = { "error", "warn", "info", "hint" },
-					symbols = {
-						error = Icons.diagnostics.Error,
-						hint = Icons.diagnostics.Hint,
-						info = Icons.diagnostics.Info,
-						warn = Icons.diagnostics.Warning,
-					},
-					colored = true,
-					update_in_insert = false,
-					always_visible = false,
-				}
-
-				require("lualine").setup({
-					options = {
-						globalstatus = true,
-						section_separators = "",
-						component_separators = "",
-						theme = "ayu_mirage",
-						disabled_filetypes = {
-							statusline = {
-								"dashboard",
-								"lazy",
-								"alpha",
-							},
-						},
-					},
-					sections = {
-						lualine_a = {},
-						lualine_b = {},
-						lualine_c = { { "filename", path = 1, shorten = true }, "branch" },
-						lualine_x = {},
-						-- lualine_y = {diagnostics, lsp_status},
-						lualine_y = { diagnostics },
-						lualine_z = {},
-					},
-				})
-
-				if transparent_ok then
-					transparent.clear_prefix("lualine")
-				end
-			end,
-		},
-		{
 			"yamatsum/nvim-cursorline",
 			config = function()
 				require("nvim-cursorline").setup({

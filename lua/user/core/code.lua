@@ -21,6 +21,8 @@ return {
 							vim.fs.joinpath(vim.fn.stdpath("data"), "lazy", "python-type-stubs")
 					end,
 				})
+
+                require("lspconfig").cssls.setup({})
 			end,
 		},
 		{ "hrsh7th/cmp-nvim-lsp" },

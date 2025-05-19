@@ -43,8 +43,12 @@ return {
 			)
 		end, { noremap = true, silent = true, desc = "Toggle vertical split width" })
 
+		vim.keymap.set("n", "<leader>h", require("harpoon.mark").add_file, { noremap = true, silent = false })
+		vim.keymap.set("n", "<leader>l", require("harpoon.ui").toggle_quick_menu, { noremap = true, silent = false })
+
 		vim.keymap.set("n", "tn", require("harpoon.ui").nav_next, { noremap = true, silent = false })
 		vim.keymap.set("n", "th", require("harpoon.ui").nav_prev, { noremap = true, silent = false })
+
 		vim.keymap.set("n", "<A-a>", function()
 			require("harpoon.ui").nav_file(1)
 		end, { noremap = true, silent = false })
@@ -55,7 +59,10 @@ return {
 			require("harpoon.ui").nav_file(3)
 		end, { noremap = true, silent = false })
 		vim.keymap.set("n", "<A-u>", function()
-			require("harpoon.<A-i>").nav_file(4)
+			require("harpoon.ui").nav_file(4)
+		end, { noremap = true, silent = false })
+		vim.keymap.set("n", "<A-i>", function()
+			require("harpoon.i").nav_file(5)
 		end, { noremap = true, silent = false })
 	end,
 }
