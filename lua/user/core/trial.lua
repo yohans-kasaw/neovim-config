@@ -1,6 +1,11 @@
 return {
 	plugins = {
 		{
+			"pmizio/typescript-tools.nvim",
+			dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+			opts = {},
+		},
+		{
 			"echasnovski/mini.nvim",
 			version = false,
 			config = function()

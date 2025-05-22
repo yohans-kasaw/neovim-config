@@ -4,6 +4,24 @@ return {
 			"neovim/nvim-lspconfig",
 			config = function()
 				local lspconfig = require("lspconfig")
+
+				lspconfig.ts_ls.setup({
+					init_options = {
+						plugins = {
+							{
+								name = "@vue/typescript-plugin",
+								location = "/usr/lib/node_modules/@vue/typescript-plugin",
+								languages = { "javascript", "typescript", "vue" },
+							},
+						},
+					},
+					filetypes = {
+						"javascript",
+						"typescript",
+						"vue",
+					},
+				})
+
 				lspconfig.volar.setup({
 					filetypes = {
 						"vue",
@@ -15,14 +33,14 @@ return {
 					},
 				})
 
-				require("lspconfig").pyright.setup({
+				lspconfig.pyright.setup({
 					before_init = function(_, config)
 						config.settings.python.analysis.stubPath =
 							vim.fs.joinpath(vim.fn.stdpath("data"), "lazy", "python-type-stubs")
 					end,
 				})
 
-                require("lspconfig").cssls.setup({})
+				lspconfig.cssls.setup({})
 			end,
 		},
 		{ "hrsh7th/cmp-nvim-lsp" },
