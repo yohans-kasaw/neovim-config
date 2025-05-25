@@ -30,6 +30,6 @@ return {
 
 		vim.keymap.set({"n","x"}, "<leader>hD", function()
 			gitsigns.diffthis("~")
-		end, { desc = "Diff This Unstaged" })
+		end, { desc = "Diff This Unstaged changes" })
 	end,
 }
