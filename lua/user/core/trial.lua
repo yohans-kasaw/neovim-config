@@ -69,5 +69,8 @@ return {
 		vim.keymap.set("n", "<A-i>", function()
 			require("harpoon.i").nav_file(5)
 		end, { noremap = true, silent = false })
+
+		-- custom
+		vim.keymap.set("n", "md", "^i[x]<Esc>", { noremap = true, silent = false, desc = "add [x]" })
 	end,
 }
