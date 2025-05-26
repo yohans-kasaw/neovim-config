@@ -28,7 +28,8 @@ return {
 								},
 								schema = {
 									model = {
-										default = 'google/gemini-2.5-flash-preview',
+										-- default = 'google/gemini-2.5-flash-preview',
+										default = 'anthropic/claude-sonnet-4',
 									},
 								},
 							})

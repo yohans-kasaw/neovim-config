@@ -17,5 +17,6 @@ vim.lsp.enable({
 vim.diagnostic.config({
 	float = {
 		border = "double",
+		source = true
 	},
 })
