@@ -4,8 +4,8 @@ vim.g.mapleader = " "
 require("user.options")
 require("user.core")
 require("user.cmp")
+require("user.autocmd")
 
--- vim.cmd("colorscheme kanso-pearl")
 vim.cmd("colorscheme kanso-zen")
 
 vim.lsp.enable({

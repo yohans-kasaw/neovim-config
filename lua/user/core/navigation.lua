@@ -8,8 +8,30 @@ return {
 				})
 			end,
 		},
+		{ "kelly-lin/ranger.nvim" },
 		{
-			"kelly-lin/ranger.nvim",
+			"chentoast/marks.nvim",
+			event = "VeryLazy",
+			opts = {
+				mappings = {
+					set_next = "ma",
+					next = "mn",
+					preview = "mp",
+				},
+			},
+		},
+		{
+			"m4xshen/hardtime.nvim",
+			lazy = false,
+			dependencies = { "MunifTanjim/nui.nvim" },
+			opts = {
+				disabled_keys = {
+					["<Up>"] = false,
+					["<Down>"] = false,
+					["<Left>"] = false,
+					["<Right>"] = false,
+				},
+			},
 		},
 	},
 	keys = function()
@@ -28,7 +50,6 @@ return {
 		vim.api.nvim_set_keymap("n", "<C-Right>", "<C-w>l", { noremap = true, silent = true })
 		vim.api.nvim_set_keymap("n", "<C-Up>", "<C-w>k", { noremap = true, silent = true })
 		vim.api.nvim_set_keymap("n", "<C-Down>", "<C-w>j", { noremap = true, silent = true })
-
 
 		-- harppon
 

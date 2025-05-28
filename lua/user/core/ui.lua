@@ -17,8 +17,31 @@ return {
 					view = {
 						side = "right",
 					},
+
+					renderer = {
+						full_name = true,
+						group_empty = true,
+						indent_markers = {
+							enable = true,
+						},
+						icons = {
+							git_placement = "signcolumn",
+							show = {
+								folder = false,
+							},
+						},
+					},
 					diagnostics = {
 						enable = true,
+						show_on_dirs = true,
+					},
+					update_focused_file = {
+						enable = true,
+					},
+					filters = {
+						custom = {
+							"^.git$",
+						},
 					},
 				})
 			end,
@@ -72,6 +95,11 @@ return {
 		},
 	},
 	keys = function()
-		vim.api.nvim_set_keymap("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
+		vim.api.nvim_set_keymap(
+            "n",
+            "<leader>e",
+            ":NvimTreeToggle<CR>",
+            { noremap = true, silent = true }
+        )
 	end,
 }

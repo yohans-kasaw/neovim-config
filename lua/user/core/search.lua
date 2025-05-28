@@ -48,6 +48,7 @@ return {
 						count = true, -- use vim.v.count1
 					},
 				},
+				gitbrowse = {},
 			},
 		},
 		{
@@ -124,5 +125,9 @@ return {
 		vim.keymap.set("n", "<leader>/", function()
 			Snacks.picker.grep()
 		end, { desc = "Grep" })
+
+		vim.keymap.set("n", "<leader>hB", function()
+			Snacks.gitbrowse()
+		end, { desc = "gitbrowse" })
 	end,
 }
