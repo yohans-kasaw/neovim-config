@@ -51,8 +51,8 @@ return {
 		vim.keymap.set("n", "<leader>h", require("harpoon.mark").add_file, { noremap = true, silent = false })
 		vim.keymap.set("n", "<leader>l", require("harpoon.ui").toggle_quick_menu, { noremap = true, silent = false })
 
-		vim.keymap.set("n", "tn", require("harpoon.ui").nav_next, { noremap = true, silent = false })
-		vim.keymap.set("n", "th", require("harpoon.ui").nav_prev, { noremap = true, silent = false })
+		vim.keymap.set("n", "<Right>", require("harpoon.ui").nav_next, { noremap = true, silent = false })
+		vim.keymap.set("n", "<left>", require("harpoon.ui").nav_prev, { noremap = true, silent = false })
 
 		vim.keymap.set("n", "<A-a>", function()
 			require("harpoon.ui").nav_file(1)
