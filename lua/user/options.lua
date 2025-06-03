@@ -22,11 +22,12 @@ vim.opt.fillchars = { eob = " " }
 vim.opt.signcolumn = "yes"
 vim.g.airline_theme = "oceanicnext"
 vim.opt.completeopt = { "menu", "menuone", "noselect", "noinsert" }
-vim.opt.smartcase = true
 
 vim.opt.signcolumn = "yes"
 vim.g.airline_theme = "oceanicnext"
 vim.opt.completeopt = { "menu", "menuone", "noselect", "noinsert" }
+
+vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 vim.opt.relativenumber = true
