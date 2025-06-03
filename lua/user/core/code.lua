@@ -123,12 +123,11 @@ return {
 						enable = true,
 						disable = { "markdown" },
 					},
-					refactor = {
-						smart_rename = {
-							enable = true,
-							keymaps = {
-								smart_rename = "grr",
-							},
+					incremental_selection = {
+						enable = true,
+						keymaps = {
+							init_selection = "<CR>",
+							node_incremental = "<CR>",
 						},
 					},
 				})
@@ -161,6 +160,19 @@ return {
 			end,
 		},
 		{ "microsoft/python-type-stubs" },
+		{
+			"supermaven-inc/supermaven-nvim",
+			config = function()
+				require("supermaven-nvim").setup({
+					keymaps = {
+						accept_suggestion = "<A-l>",
+						clear_suggestion = "<A-h>",
+					},
+					ignore_filetypes = { markdown = true },
+					disable_keymaps = true,
+				})
+			end,
+		},
 	},
 	keys = function()
 		vim.keymap.set("n", "gl", function()
