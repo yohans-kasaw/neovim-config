@@ -122,3 +122,7 @@ cmp.setup.cmdline(":", {
 	matching = matching_settings,
 	completion = completion_settings,
 })
+
+cmp.setup.filetype("markdown", {
+	enabled = false,
+})
