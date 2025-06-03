@@ -58,6 +58,12 @@ return {
 		},
 	},
 	keys = function()
+
+		vim.keymap.set("n", "<leader>u", function()
+			Snacks.picker.jumps()
+		end, { desc = "Smart Find Files" })
+
+
 		vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>Telescope<CR>", { noremap = true, silent = false })
 		vim.api.nvim_set_keymap(
 			"n",
