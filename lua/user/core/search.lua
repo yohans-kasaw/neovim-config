@@ -92,31 +92,31 @@ return {
 			Snacks.picker.projects()
 		end, { desc = "Projects" })
 
-		vim.keymap.set("n", "<leader>b", function()
-			Snacks.picker.buffers()
-		end, { desc = "Keymaps" })
+		-- vim.keymap.set("n", "<leader>b", function()
+		-- 	Snacks.picker.buffers()
+		-- end, { desc = "Keymaps" })
 
 		vim.keymap.set("n", "<leader>.", function()
 			Snacks.scratch()
 		end, { desc = "Toggle Scratch Buffer" })
 
-		vim.keymap.set("n", "gd", function()
+		vim.keymap.set("n", "<leader>gd", function()
 			Snacks.picker.lsp_definitions()
 		end, { desc = "Goto Definition" })
 
-		vim.keymap.set("n", "gD", function()
+		vim.keymap.set("n", "<leader>gD", function()
 			Snacks.picker.lsp_declarations()
 		end, { desc = "Goto Declaration" })
 
-		vim.keymap.set("n", "gr", function()
+		vim.keymap.set("n", "<leader>gr", function()
 			Snacks.picker.lsp_references()
 		end, { nowait = true, desc = "References" })
 
-		vim.keymap.set("n", "gI", function()
+		vim.keymap.set("n", "<leader>gI", function()
 			Snacks.picker.lsp_implementations()
 		end, { desc = "Goto Implementation" })
 
-		vim.keymap.set("n", "gy", function()
+		vim.keymap.set("n", "<leader>gy", function()
 			Snacks.picker.lsp_type_definitions()
 		end, { desc = "Goto T[y]pe Definition" })
 

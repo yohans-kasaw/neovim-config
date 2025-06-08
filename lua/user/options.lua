@@ -40,10 +40,11 @@ vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
 
 local function enable_spell()
 	vim.opt_local.spell = true
-	vim.opt_local.spelllang = { "en_us" } -- Using table for multiple languages
+	vim.opt_local.spelllang = { "en_us" }
 end
 
 vim.o.undofile = true
+vim.opt.spellcapcheck = ''
 
 vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
 	desc = "Conditional spell checking activation",
@@ -70,3 +71,5 @@ vim.g.neovide_confirm_quit = true
 
 vim.opt.linebreak = true
 vim.opt.breakindent = true
+
+

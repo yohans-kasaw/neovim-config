@@ -33,11 +33,30 @@ return {
 				},
 			},
 		},
+		{
+			"leath-dub/snipe.nvim",
+			opts = {
+				ui = {
+					position = "cursor",
+				},
+			},
+		},
+		{
+			"kungfusheep/snipe-lsp.nvim",
+			event = "VeryLazy",
+			dependencies = "leath-dub/snipe.nvim",
+			opts = {},
+		},
 	},
 	keys = function()
-
 		vim.keymap.set("n", "<C-h>", "<C-o>")
 		vim.keymap.set("n", "<C-l>", "<C-i>")
+
+		vim.keymap.set("n", "<leader>b", function()
+			require("snipe").open_buffer_menu()
+		end, { desc = "Open Snipe buffer menu" })
+
+		vim.keymap.set("n", "gs", "<cmd>SnipeLspSymbols<CR>", { desc = "Open Snipe Lsp symbols menu" })
 
 		vim.keymap.set("n", "<leader>h", require("harpoon.mark").add_file, { noremap = true, silent = false })
 		vim.keymap.set("n", "<leader>l", require("harpoon.ui").toggle_quick_menu, { noremap = true, silent = false })
