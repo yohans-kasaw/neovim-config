@@ -27,8 +27,8 @@ return {
 		vim.api.nvim_set_keymap("n", "j", "gj", { noremap = true, silent = true })
 		vim.api.nvim_set_keymap("n", "k", "gk", { noremap = true, silent = true })
 
-		vim.keymap.set({ "n", "v" }, "<Down>", "<C-f>zz", { noremap = true, silent = false })
-		vim.keymap.set({ "n", "v" }, "<Up>", "<C-b>zz", { noremap = true, silent = false })
+		vim.keymap.set({ "n", "v" }, "<Down>", "<C-f>", { noremap = true, silent = false })
+		vim.keymap.set({ "n", "v" }, "<Up>", "<C-b>", { noremap = true, silent = false })
 
 		vim.keymap.set({ "n", "v" }, "<S-Up>", "<cmd>Treewalker Up<cr>zz", { silent = true })
 		vim.keymap.set({ "n", "v" }, "<S-Down>", "<cmd>Treewalker Down<cr>zz", { silent = true })

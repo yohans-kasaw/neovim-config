@@ -47,6 +47,14 @@ return {
 			dependencies = "leath-dub/snipe.nvim",
 			opts = {},
 		},
+		{
+			"hedyhli/outline.nvim",
+			config = function()
+				vim.keymap.set("n", "<leader>a", "<cmd>Outline<CR>", { desc = "Toggle Outline" })
+
+				require("outline").setup({})
+			end,
+		},
 	},
 	keys = function()
 		vim.keymap.set("n", "<C-h>", "<C-o>")
